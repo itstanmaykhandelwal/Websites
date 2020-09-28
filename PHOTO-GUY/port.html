@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+
+	<style >
+.button {
+  display: inline-block;
+  padding: 0.5em 1.0em;
+  border-radius: 4px;
+  background: #ffffff;
+  font-family: sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #000000;
+  margin: 10px;
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.button:active,
+.button.is-checked {
+  background-color: rgba(0,0,0,0.1);
+  outline: none;
+}
+
+.button-group {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.button-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.grid article {
+  background-color: #FFFFFF;
+  display: block;
+  float: left;
+  margin: 1%;
+  width: 23%;
+}
+
+@media (max-width: 1024px) {
+  .grid article {
+    width: 31.3%;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid article {
+    width: 48%;
+  }
+}
+
+@media (max-width: 479px) {
+  .grid article {
+    margin: 2% 0;
+    width: 100%;
+  }
+}	
+	</style>
+</head>
+<body>
+<div class="button-group filters-button-group">
+    <button class="button " data-filter="*">all</button>
+    <button class="button" data-filter=".beach">Faishon</button>
+    <button class="button" data-filter=".bird">Couples</button>
+    <button class="button" data-filter=".boat">Portraits</button>
+</div>
+
+<section id="grid-container-fluid" class="transitions-enabled fluid masonry js-masonry grid">
+    <article class="beach people sea">
+        <img src="images/port (2).jpg" class="img-responsive" />
+    </article>
+    <article class="beach bird">
+        <img src="images/port (3).jpg" class="img-responsive" />
+    </article>
+    <article class="sea">
+        <img src="images/port (4).jpg" class="img-responsive" />
+    </article>
+    <article class="beach people rock sea">
+        <img src="images/port (5).jpg" class="img-responsive" />
+    </article>
+    <article class="beach sea">
+        <img src="images/port (6).jpg" class="img-responsive" />
+    </article>
+    <article class="bird">
+        <img src="images/port (7).jpg" class="img-responsive" />
+    </article>
+</section>
+
+<script>
+	$( function() {
+  var $grid = $('.grid').isotope({
+    itemSelector: 'article'
+  });
+
+  // filter buttons
+  $('.filters-button-group').on( 'click', 'button', function() {
+    var filterValue = $( this ).attr('data-filter');
+    $grid.isotope({ filter: filterValue });
+  });
+  $('.button-group').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', 'button', function() {
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      $( this ).addClass('is-checked');
+    });
+  });
+});
+
+// debounce so filtering doesn't happen every millisecond
+function debounce( fn, threshold ) {
+  var timeout;
+  return function debounced() {
+    if ( timeout ) {
+      clearTimeout( timeout );
+    }
+    function delayed() {
+      fn();
+      timeout = null;
+    }
+    timeout = setTimeout( delayed, threshold || 100 );
+  }
+}
+
+$(window).bind("load", function() {
+  $('#all').click();
+});
+</script>
+</body>
+</html>
