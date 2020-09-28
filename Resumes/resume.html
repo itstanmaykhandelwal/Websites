@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resume Website</title>
+	<style>
+		body{
+			margin: 0;
+			padding:0;
+			font-family: sans-serif;
+		}
+		#header{
+			height: 100vh;
+			background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(images/back.jpg);
+			background-position: center;
+			background-size: cover;
+			background-attachment: fixed;
+		}
+		.user-box{
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			position: absolute;
+		}
+		.img1{
+			height: 400px;
+			border-radius: 250px;
+			border: 2px solid #6caed5;
+		}
+		
+		.user-box h1{
+			color: white;
+			font-weight: bold;
+			margin:10px;
+		}
+		.user-box p{
+			color: white;
+		}
+		.scroll-btn{
+			bottom: 30px;
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%);
+			border: 2px solid #fff;
+			padding: 10px 10px 20px;
+			border-radius: 30px;
+		}
+		.scroll-bar span{
+			border: 2px solid #fff;
+			font-size: 10px;
+			border-radius: 30px;
+		}
+		.scroll-bar{
+			animation: mover 1s infinite alternate;
+		}
+		@keyframes mover{
+			0%{transform:translateY(0); }
+			100%{transform:translateY(10px);}
+		}
+		.about{
+			padding-top: 100px;
+			padding-bottom: 50px;
+		}
+		.img{
+			height: 350px;
+		}
+		.nav-bar{
+			top: 0;
+			position: sticky;
+			z-index: 2;
+		}
+		.navbar{
+			background-color: black;
+		}
+		.navbar-brand1{
+			font-family: 'Permanent Marker', cursive;
+			font-size: 30px;
+			letter-spacing: 1px;
+			color: white;
+		}
+		.nav-bar .fa-bars{
+			font-size: 30px;
+			color: white;
+		}
+		.navbar-toggler{
+			outline: none!important;
+		}
+		.navbar-nav{
+			float: right;
+			text-align: right;
+		}
+		.nav-link{
+			color: #fff!important;
+		}
+		.skills-bar p{
+			margin-bottom: 6px;
+			font-weight: 600px;
+		}
+		.progress{
+			border-radius: 16px!important;
+			margin-bottom: 10px;
+		}
+		.progress-bar{
+			border-radius: 16px;
+			background-color: #000!important;
+		}
+		.container{
+			width: 100px;
+		}
+		.resume{ 
+			padding-top: 50px;
+			padding-bottom: 30px;
+			background-color: #f9f9f9;
+
+		}
+		.resume h3{
+			margin-bottom: 50px;
+			text-align: center;
+		}
+		.timeline{
+			list-style-type: none;
+			position: relative;
+		}
+		.timeline:before{
+			content: '';
+			background: #555;
+			display: inline-block;
+			position: absolute;
+			left: 29px;
+			width: 2px;
+			height: 100%;
+			z-index: 1;
+		}
+		.timeline li{
+			margin-top: 20px;
+			margin-bottom: 20px;
+			margin-left: 20px;
+			background: white;
+		}
+		.timeline li h4{
+			background-color: #000;
+			padding: 5px 0 5px 20px;
+			color: #fff;
+			font-size: 15px;
+		}
+		.timeline li h4 span{
+			font-weight: bold;
+			color: #ccc;
+
+		}
+		.timeline li:before{
+			content: '';
+			background: #fff;
+			display: inline-block;
+			position: absolute;
+			border-radius: 50%;
+			border: 3px solid #000;
+			left: 20px;
+			width: 20px;
+			height: 20px;
+			z-index: 1;
+		}
+		
+		.service{
+			padding-top: 50px;
+			
+		}
+		.service h1{
+			margin-bottom: 15px;
+		}
+		.service-box{
+			background: black;
+			color: white;
+			padding: 10px;
+			margin-top: 20px;
+			border-top-right-radius: 50px;
+			border-bottom-left-radius: 50px;
+		}
+		.service-box .fa{
+			margin:0 10px;
+			font-size: 20px;
+		}
+		.service-box span{
+			margin: 3px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.service-box p{
+			font-size: 15px;
+			margin-top: 20px;
+			color: #777;
+		}
+		.service-box:hover{
+			background: #000;
+			color: white;
+			padding: 10px;
+			margin-top: 20px;
+			border-top-right-radius: 0;
+			border-bottom-left-radius:0;
+			border-top-left-radius: 50px;
+			border-bottom-right-radius: 50px;
+			transition: .8s;
+		}
+		.service-box:hover p{
+		    color: white;
+		}
+		.contact{
+			padding-bottom: 10px;
+			background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(images/bg1.jpeg);
+			background-position: center;
+			background-size: cover;
+			background-attachment: fixed;
+			width: auto;
+			color: white;
+		}
+		.contact h1{
+			
+			padding-top: 20px;
+		}
+		.contact .row{
+			padding: 20px 0;
+			font-size: 22px;
+		}
+		.contact .col-md-4 .fa{
+			padding: 10px;
+			font-size: 30px;
+		}
+		.contact .btn{
+           padding: 10px 25px 10px 25px;
+           margin: 5px;
+           border-radius: 30px;
+           border:2px solid #fff;
+           background: transparent;
+		}
+		.contact .btn:focus{
+           box-shadow: none!important;
+		}
+
+		.contact .btn:hover{
+			border:2px solid black!important;
+			background-color: black!important;
+			transition: 0.6s;
+		}
+		.contact .btn .fa{
+			margin-right: 10px;
+		}
+		.footer{
+			background-color: black;
+			height: 50px;
+			margin-top: 50px;
+			color: #fff;
+			padding-top: 10px;
+		}
+		.social-icons{
+			font-size: 30px;
+			margin-left: 38%;
+		}
+		.social-icons .fa{
+            color: white;
+            margin-left: 30px;
+		}
+		.social-icons .fa:hover{
+			transition: 1s;
+			background-color: transparent;
+	</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<!--header-->
+<section id="header">
+	<div class="container text-center">
+		<div class="user-box">
+			<img src="images/me.jpg" class="img1">
+			<h1>Tanmay Khandelwal</h1>
+			<p>Freelance Front End Developer</p>
+		</div>
+	</div>
+	<div class="scroll-btn">
+		<div class="scroll-bar"><a href="#about"><span></span></a></div>
+	</div>
+</section>
+<!--User--->
+<section id="user-info">
+	<div class="nav-bar">
+	<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand1" href="#">TANMAY</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#top">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#about">ABOUT ME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#resume">RESUME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#service">SERVICE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#footer">CONTACT</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
+<!--about--->
+<div class="about container" id="about">
+	<div class="row">
+		<div class="col-md-6 text-center">
+			<img src="images/me.jpg" class="img">
+		</div>
+		<div class="col-md-6">
+			<h3>WHO AM I ?</h3>
+			<p>I am Tanmay Khandelwal from Firozabad,I am a B.C.A Student.<bR>Currently I am Practicing on  my Skills </p>
+			<div class="skills-bar">
+				<p>Adobe Photoshop</p>
+				<div class="progress">
+					<div class="progress-bar" style="width: 80%;">80%</div>
+				</div>
+
+				<div class="skills-bar">
+					<p>UI Design</p>
+				<div class="progress">
+					<div class="progress-bar" style="width: 70%;">70%</div>
+				</div>
+				<div class="skills-bar">
+				<p>Front-End Developer</p>
+				<div class="progress">
+					<div class="progress-bar" style="width: 85%;">85%</div>
+				</div>
+				<div class="skills-bar">
+				<p>WordPress</p>
+				<div class="progress">
+					<div class="progress-bar" style="width: 60%;">60%</div>
+				</div>
+			</div>
+			</div>
+		</div>	
+	</div>
+</div>
+
+<!--social-->
+
+<!--resume-->
+<div class="resume" id="resume">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h3>My Experiences</h3>
+				<ul class="timeline">
+					<li>
+						<h4><span>2020 -</span>Front End Developer</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<b>Company</b> - xyz Company Pvt Ltd<br>
+						<b>Duration</b> -  2 Months[Jan-Feb]<br>
+						<b>Location</b> - Noida,India
+					</li><br>
+
+					<li>
+						<h4><span>2020 -</span>Front End Developer</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<b>Company</b> - xyz Company Pvt Ltd<br>
+						<b>Duration</b> -  1 Months[March]<br>
+						<b>Location</b> - Delhi,India
+					</li>
+				</ul>
+			</div>
+
+			<div class="col-md-6">
+				<h3>My Education</h3>
+				<ul class="timeline">
+					<li>
+						<h4><span>2020 -</span>Bachelor of Computer Application</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<b>Institute</b> - SRK College<br>
+						<b>Session</b> -  2019-2022<br>
+						<b>Aggregate</b> - 70%
+					</li><br>
+					<li>
+						<h4><span>2020 -</span>Intermediate(C.B.S.E)</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<b>Institute</b> - Kids Corner Happy School<br>
+						<b>Session</b> -  2016-2017<br>
+						<b>Aggregate</b> - 60%
+					</li><br>
+
+					<li>
+						<h4><span>2020 -</span>High School(C.B.S.E)</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<b>Institute</b> - Kids Corner Happy School<br>
+						<b>Session</b> -  2014-2015<br>
+						<b>Aggregate</b> - 6.2 CGP
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--service--->
+<div class="service" id="service">
+	<div class="container">
+		<h1 class="text-center">My Offered Services</h1>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="service-box">
+					<i class="fa fa-rocket"></i><span>Graphics</span>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="service-box">
+					<i class="fa fa-laptop"></i><span>Front-End</span>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="service-box">
+					<i class="fa fa-camera"></i><span>Photography</span>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--contact--->
+</section>
+
+<section id="footer">
+	<div class="contact" >
+	<div class="container text-center">
+		<h1>Contact Me</h1><br>
+		<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br> incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam</p>
+		<div class="row">
+			<div class="col-md-4">
+			    <i class="fa fa-phone"></i>
+			    <p>+91 123456789</p>
+		    </div>
+		    <div class="col-md-4">
+			    <i class="fa fa-envelope"></i>
+			    <p>iamtanmaykh07@gmail.com</p>
+		    </div>
+		    <div class="col-md-4">
+			    <i class="fa fa-internet-explorer"></i>
+			    <p>www.tanmaykh.com</p>
+		    </div>
+		</div>
+		
+		<button type="button" class="btn btn-primary"><i class="fa fa-download"></i>Resume</button>
+		<button type="button" class="btn btn-primary"><i class="fa fa-rocket"></i>Hire Me</button>
+	</div>
+		<div class="social-icons">
+	<ul>
+		<a href="#"><i class="fa fa-linkedin"></i></a>
+		<a href="#"><i class="fa fa-github"></i></a>
+		<a href="#"><i class="fa fa-facebook"></i></a>
+		<a href="#"><i class="fa fa-twitter"></i></a>
+	</ul>
+</div><hr>
+	<div class="footer text-center">
+		<p>Made By <b>Tanmay Khandelwal</b></p>
+	</div>
+</div>
+</section>
+
+<script src="smooth-scroll.js"></script>
+	<script>
+	var scroll = new SmoothScroll('a[href*="#"]');
+</script>
+</body>
+</html>
